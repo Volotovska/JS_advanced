@@ -14,9 +14,9 @@
   //     return Math.floor(Math.random() * (max - min + 1)) + min;
   //   }
 
-  //   var r = getRandomIntInclusive(0,256);
-  //   var g = getRandomIntInclusive(0,256);
-  //   var b = getRandomIntInclusive(0,256);
+  //   var r = getRandomIntInclusive(0,255);
+  //   var g = getRandomIntInclusive(0,255);
+  //   var b = getRandomIntInclusive(0,255);
 
   //   console.log(r, g, b); 
   //   // для понимания комбинации цифр r,g,b
@@ -30,6 +30,7 @@
   // var body = document.getElementsByTagName('body');
   // var div = document.createElement('div');
   // var button = document.createElement('input');
+
   // button.type = "button";
   // button.value = "Click and change color of page";
   // div.style.margin = "100px";
@@ -45,11 +46,11 @@
   //     return Math.floor(Math.random() * (max - min + 1)) + min;
   //   }
 
-  //   var r = getRandomIntInclusive(0,256);
-  //   var g = getRandomIntInclusive(0,256);
-  //   var b = getRandomIntInclusive(0,256);
+  //   var r = getRandomIntInclusive(0,255);
+  //   var g = getRandomIntInclusive(0,255);
+  //   var b = getRandomIntInclusive(0,255);
 
-  //     document.body.style.background = "rgb(" + r + "," + g + "," + b + ")";
+  //    document.body.style.background = "rgb(" + r + "," + g + "," + b + ")";
   // }
 
   // document.body.appendChild(div);
@@ -65,9 +66,9 @@
     //   return Math.floor(Math.random() * (max - min + 1)) + min;
     // }
 
-    // var a = getRandomIntInclusive(0,256).toString(16);
-    // var b = getRandomIntInclusive(0,256).toString(16);
-    // var c = getRandomIntInclusive(0,256).toString(16);
+    // var a = getRandomIntInclusive(0,255).toString(16);
+    // var b = getRandomIntInclusive(0,255).toString(16);
+    // var c = getRandomIntInclusive(0,255).toString(16);
 
     // document.body.style.background = "#" + a + b + c ;
 
@@ -107,9 +108,9 @@
   //     return Math.floor(Math.random() * (max - min + 1)) + min;
   //   }
 
-  //   var r = getRandomIntInclusive(0,256);
-  //   var g = getRandomIntInclusive(0,256);
-  //   var b = getRandomIntInclusive(0,256);
+  //   var r = getRandomIntInclusive(0,255);
+  //   var g = getRandomIntInclusive(0,255);
+  //   var b = getRandomIntInclusive(0,255);
 
   //     div2.style.background = "rgb(" + r + "," + g + "," + b + ")";
   // }
