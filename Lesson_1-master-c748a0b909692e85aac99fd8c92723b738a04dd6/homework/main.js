@@ -34,7 +34,7 @@
   // button.type = "button";
   // button.value = "Click and change color of page";
   // div.style.margin = "100px";
-  //   button.style.background = "rgb(0, 0, 153)";
+  // button.style.background = "rgb(0, 0, 153)";
   // button.style.color = "rgb(255, 255, 204)";
   // button.style.border = "1px solid rgb(255, 255, 204)";
 
@@ -58,21 +58,23 @@
   
 
 
-  //+ Бонус, использовать 6-ричную систему исчесления и цвет HEX -> #FFCC00
+ // + Бонус, использовать 6-ричную систему исчесления и цвет HEX -> #FFCC00
 
-    // function getRandomIntInclusive(min, max) {
-    //   min = Math.ceil(min);
-    //   max = Math.floor(max);
-    //   return Math.floor(Math.random() * (max - min + 1)) + min;
-    // }
+//     function getRandomIntInclusive(min, max) {
+//       min = Math.ceil(min);
+//       max = Math.floor(max);
+//       return Math.floor(Math.random() * (max - min + 1)) + min;
+//     }
 
-    // var a = getRandomIntInclusive(0,255).toString(16);
-    // var b = getRandomIntInclusive(0,255).toString(16);
-    // var c = getRandomIntInclusive(0,255).toString(16);
+//     var a = getRandomIntInclusive(0,255).toString(16);
+//     var b = getRandomIntInclusive(0,255).toString(16);
+//     var c = getRandomIntInclusive(0,255).toString(16);
 
-    // document.body.style.background = "#" + a + b + c ;
+//     console.log(a, b, c);
 
-    // console.log("#" + a + b + c);
+//     document.body.style.background = "#" + (a.length === 1 ? '0' + a : a) + (b.length === 1 ? '0' + b : b) + (c.length === 1 ? '0' + c : c);
+
+//     console.log(document.body.style.background);
   
 
 
