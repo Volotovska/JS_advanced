@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Task 3</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrap" id="wrap">
+      <h1>Переключение слайдера</h1>
+      <div class="roadMap__container yellow">
+        <button class="navButton"><</button>
+        <div class="roadMap">
+          <div class="roadMapPoint ball" data-id="1"></div>
+          <div class="roadMapPoint" data-id="2"></div>
+          <div class="roadMapPoint" data-id="3"></div>
+          <div class="roadMapPoint" data-id="4"></div>
+        </div>
+        <button class="navButton">></button>
+      </div>
+
+      <div class="roadMap__container red">
+        <button class="navButton"><</button>
+        <div class="roadMap">
+          <div class="roadMapPoint" data-id="1"></div>
+          <div class="roadMapPoint" data-id="2"></div>
+          <div class="roadMapPoint ball" data-id="3"></div>
+          <div class="roadMapPoint" data-id="4"></div>
+        </div>
+        <button class="navButton">></button>
+      </div>
+
+      <div class="roadMap__container blue">
+        <button class="navButton"><</button>
+        <div class="roadMap">
+          <div class="roadMapPoint" data-id="1"></div>
+          <div class="roadMapPoint ball" data-id="2"></div>
+          <div class="roadMapPoint" data-id="3"></div>
+          <div class="roadMapPoint" data-id="4"></div>
+        </div>
+        <button class="navButton">></button>
+      </div>
+
+    </div>
+    <script>
+      /*
+        Задание:
+
+        Написать скрипт, который будет приводить в действие переключалки из разметки.
+        И будет перемещать класс ball по точкам в зависимости от нажатой кнопки
+
+      */
+      var roadMap__container = document.querySelectorAll('.roadMap__container');
+      console.log(roadMap__container);
+
+
+      // navButton.forEach(function(item, index){
+      //   navButton[index].onclick= function chngBall(){
+      //     for(var i = 0; i <roadMapPoint.length;i++){
+      //       if (roadMapPoint[i].classList.contains("ball")){
+      //         roadMapPoint[i].classList.remove("ball");
+      //         roadMapPoint[i+1].classList.add("ball");
+      //         break;
+      //         console.log(roadMapPoint);
+      //       }
+      //     }
+      //   }
+      // });
+
+      roadMap__container.forEach( function( SingleContainer ){
+        var navButton = SingleContainer.querySelectorAll('.navButton');
+        var AllroadMapPoint = SingleContainer.querySelectorAll('.roadMapPoint');
+
+        navButton[1].onclick= function chngBall(){
+          var ball_index = SingleContainer.querySelector('.ball').dataset.id;
+          if(ball_index>=0 && ball_index<AllroadMapPoint.length){
+            AllroadMapPoint[ball_index-1].classList.remove('ball');
+            AllroadMapPoint[ball_index].classList.add('ball');
+          }
+      }
+
+        navButton[0].onclick= function chngBall(){
+          var ball_index = SingleContainer.querySelector('.ball').dataset.id;
+          if(ball_index - 2>=0 && ball_index<=AllroadMapPoint.length){
+            AllroadMapPoint[ball_index-1].classList.remove('ball');
+            AllroadMapPoint[ball_index-2].classList.add('ball');
+          }
+        }
+      });
+
+
+    </script>
+  </body>
+
+<!--        var PrevButton = SingleContainer.querySelector('.navButton:first-child');
+          console.log( PrevButton, ball_index );
+
+          if (roadMapPoint[ball_index].classList.contains("ball")){
+
+          } -->
+
+</html>
