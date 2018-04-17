@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Forms Task 1</title>
+  <script>
+    /*
+      Задание:
+        Сделать валидацию формы:
+        1. Логин / Пароль не может быть пустым
+        2. Пароли должны совпадть
+        3. Пока не стоит что юзер согласен с лиц. соглашением - кнопка отправки не активна
+
+        + бонус - то поле, которое не прошло валидацию подсвечивать красным.
+                - которое прошло - подсвечивать зеленым.
+    */
+    
+  </script>
+</head>
+<body>
+
+  <form  id="MyValidateForm">
+    <input type="text" name='login' placeholder="Ваш логин" />
+    <input type="password" name='pas1' placeholder="Ваш пароль" />
+    <input type="password" name='pas2' placeholder="Повторите пароль" />
+    <label for="agree">
+      <span>Вы согласны с лицензионым соглашением.</span>
+      <input type="checkbox" id="agree" />
+    </label>
+    <input type="submit" id="submit" value="Отправить"/>
+  </form>
+
+  <style>
+    #MyValidateForm{
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #MyValidateForm input{
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      padding: 10px 20px;
+    }
+    .error{
+        border: 1px solid red;
+    }
+    .OK{
+        border: 1px solid green;
+    }
+  </style>
+  <script>
+    
+    var MyValidateForm = document.getElementById('MyValidateForm');
+    console.log(MyValidateForm);
+
+    var submit = document.getElementById('submit');
+    submit.setAttribute('disabled', 'disabled');
+
+    var password1 = MyValidateForm.pas1;
+    console.log(password1);
+    var password2 = MyValidateForm.pas2;
+    console.log(password2);
+    var checkbox = document.getElementById('agree');
+
+    var myArrayCollection = Array.from(document.forms.MyValidateForm.elements);
+
+    checkbox.addEventListener('click', function(){
+      if(this.checked == true){
+        submit.removeAttribute('disabled');
+      }
+
+    });
+
+    MyValidateForm.addEventListener('submit', function(event) {
+
+    event.preventDefault();
+
+    myArrayCollection.forEach( function(item){
+      if( item.type === 'text' && item.value === ''){
+        console.error('Error. Login is empty');
+        item.classList.add('error');
+        return;
+      }
+      else if(item.type === 'password' && item.value === ''){
+        console.error('Error. Password is empty');
+        item.classList.add('error');
+        return;
+        }
+      else if(password1.value !== password2.value){
+        console.error('Error. Passwords are not the same');
+        item.classList.add('error');
+        return;
+      }
+        item.classList.add('OK');
+      });
+    });
+
+
+  </script>
+
+</body>
+</html>

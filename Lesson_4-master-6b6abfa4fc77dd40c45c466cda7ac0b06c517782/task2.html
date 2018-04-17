@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Form work1</title>
+  <script>
+    /*
+      Задание:
+        Сделать шиблонизатор элемента по:
+        Ширине input type=range
+        Цвету  input type=color
+        Высоте input type=number
+        Скругление углов input type=number
+        Margin input type=number
+
+      Свойсвта: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
+
+      Бонус:
+        + Сделать выборку цвета из рандомных 20 цветов которые выбираются из появившегося блока :
+        https://s3.envato.com/files/230412754/screenshots/1.png
+        За заготовку для рандома цвета использовать функцию из первых занятий.
+
+    */
+   
+    window.addEventListener("load", function () {
+      var myWidth = document.getElementById('myWidth');
+
+      myWidth.addEventListener('input', function(event){
+        console.log( event.target.value );
+        result.style.width = event.target.value + 'px';
+      });
+
+    });
+
+    window.addEventListener("load", function () {
+      var myColor = document.getElementById('myColor');
+
+          function get_background(){
+
+          function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          }
+
+          var a = getRandomIntInclusive(0,255).toString(16);
+          var b = getRandomIntInclusive(0,255).toString(16);
+          var c = getRandomIntInclusive(0,255).toString(16);
+
+          var background = "#" + (a.length === 1 ? '0' + a : a) + (b.length === 1 ? '0' + b : b) + (c.length === 1 ? '0' + c : c);
+          console.log('result - ' +background);
+
+          return background;
+          }
+
+          var main_div;
+
+        var form = document.getElementsByTagName('form');
+
+        myColor.addEventListener('click', function(event){
+
+        event.preventDefault();
+
+        console.log( event.target.value );
+        if (main_div) {
+          form[0].removeChild(main_div);
+        }
+
+        main_div = document.createElement('div');
+        main_div.style.width = '410px';
+        main_div.style.height = '530px';
+        main_div.style.border = '1px solid black';
+        main_div.style.position = 'absolute';
+        main_div.style.top = '200px';
+        main_div.style.left = '200px';
+
+        
+        form[0].appendChild(main_div);
+
+        for(var i = 0; i<=19; i++){
+
+        var color_div = document.createElement('div');
+
+        var background = get_background();
+
+        color_div.style.width = '80px';
+        color_div.style.height = '80px';
+        color_div.style.border = '1px solid black';
+        color_div.style.display = 'inline-block';
+        color_div.style.margin = '10px';
+        color_div.style.background = background;
+        color_div.setAttribute('data-background', '' + background);
+
+        main_div.appendChild(color_div);
+
+        color_div.addEventListener('click', function(){
+
+          result.style.background = this.dataset.background;
+          myColor.value = this.dataset.background;
+          form[0].removeChild(main_div);
+          console.log(color_div);
+
+          });
+        }
+
+      });
+
+    });
+
+    window.addEventListener("load", function () {
+      var myHeight = document.getElementById('myHeight');
+
+      myHeight.addEventListener('input', function(event){
+        console.log( event.target.value );
+        result.style.height = event.target.value + 'px';
+      });
+
+    });
+
+    window.addEventListener("load", function () {
+      var myBorder_radius = document.getElementById('myBorder_radius');
+
+      myBorder_radius.addEventListener('input', function(event){
+        console.log( event.target.value );
+        result.style.borderRadius = event.target.value + 'px';
+      });
+
+    });
+
+    window.addEventListener("load", function () {
+      var myMargin = document.getElementById('myMargin');
+
+      myMargin.addEventListener('input', function(event){
+        console.log( event.target.value );
+        result.style.margin = event.target.value + 'px';
+      });
+
+    });
+
+  </script>
+</head>
+<body>
+  <div class="Templating">
+    <form>
+      <input type="range" id="myWidth" min="10" max="500" step="10"/>
+      <input type="color" id="myColor" min="10" max="500" step="10"/>
+      <input type="range" id="myHeight" min="10" max="500" step="10"/>
+      <input type="range" id="myBorder_radius" min="10" max="250" step="10"/>
+      <input type="range" id="myMargin" min="10" max="500" step="10"/>
+    </form>
+
+    <div class="TemplatingResult">
+      <div id="result" class="result"></div>
+    </div>
+  </div>
+
+  <style>
+    .result{
+      width: 50px;
+      background: gray;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    #MyValidateForm{
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #MyValidateForm input{
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      padding: 10px 20px;
+    }
+  </style>
+</body>
+</html>
