@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+
+  <button onclick="myFunction()">Начать</button>
+  <button onclick="myStopFunction()">Остановить</button>
+  <button onclick="myRestartFunction()">Начать заново</button>
+  <button onclick="myResetFunction()">Обнулить отчет</button>
+  <button onclick="myReverseFunction()">Реверсный отсчет</button>
+
+  <div style="width:3px; height:50px; background: grey; margin:100px" id="myDIV"></div>
+      <!--
+        Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30,
+        также добавьте кнопки который останавливают отчет, и запускают его заново и добавьте кнопку обнуляющую отчет.
+        Также попробуйте изменить код так чтобы отчет начиналься с 30 и заканчивалься на 1.
+
+       + бонус: Сделать так что бы на каждый тик (1с/2c) менялся цвет фона. Можно на основе генератора случайного цвета с предудущих уроков.
+       + бонус: Сделать визуализацию стрелки которая идет по кругу
+            document.getElementById("myDIV").style.transform = "rotate(7deg)";
+
+       + бонус: Сделать кнопки которые выбирают режим в котором идет отсчет - обычный от 0 до 30 или реверсивный от 30 до 0
+      -->
+      <script>
+
+      var counter = 1;
+
+      function myFunction() {
+      myVar = setInterval(function(){
+          if(counter<=30){
+          console.log(counter)
+          counter++;
+          }
+        }, 1000);
+    }
+
+        function myStopFunction() {
+        clearTimeout(myVar);
+    }
+
+    var newcounter = 1;
+      function myRestartFunction() {
+      console.clear();
+      myVar = setInterval(function(){
+          if(newcounter<=30){
+          console.log(newcounter)
+          newcounter++;
+          }
+        }, 1000);
+    }
+
+    
+    function myResetFunction() {
+      if (myVar) {
+      clearTimeout(myVar); 
+      counter = 1;
+      newcounter = 1;
+      revcounter = 30;
+      console.clear();
+      }
+    };
+
+    var revcounter = 30;
+
+      function myReverseFunction() {
+      myVar = setInterval(function(){
+          if(revcounter>=1){
+          console.log(revcounter)
+          revcounter--;
+          }
+        }, 1000);
+    }
+
+  //   var counter = 1;
+
+  //     function myFunction() {
+  //     myVar = setInterval(function(){
+  //         if(counter<=30){
+  //         get_background();
+  //         console.log(counter)
+  //         counter++;
+  //         }
+  //       }, 1000);
+  //   }
+
+
+  //  function get_background(){
+
+  //   function getRandomIntInclusive(min, max) {
+  //     min = Math.ceil(min);
+  //     max = Math.floor(max);
+  //     return Math.floor(Math.random() * (max - min + 1)) + min;
+  //   }
+
+  //   var r = getRandomIntInclusive(0,255);
+  //   var g = getRandomIntInclusive(0,255);
+  //   var b = getRandomIntInclusive(0,255);
+
+  //    document.body.style.background = "rgb(" + r + "," + g + "," + b + ")";
+  // };
+
+
+  function myFunction() {
+      myVar = setInterval(function(){
+          if(counter<=30){
+          ch_rotate(counter);
+          console.log(counter)
+          counter++;
+          }
+        }, 1000);
+    }
+
+  var myDIV = document.getElementById("myDIV");
+
+  function ch_rotate(counter){
+  myDIV.style.transform = "rotate("+20*counter + "deg)";
+  };
+
+  </script>
+</body>
+</html>

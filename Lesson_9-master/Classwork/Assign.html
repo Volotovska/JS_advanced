@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Classwork</title>
+
+
+</head>
+<body>
+  <div class="wrap">
+      <div class="assigned">
+        <form class="ObjForm" id="Myform1">
+            <input name="key" placeholder="Enter your key" id='key_1'/>
+            <input name="value" placeholder="Enter your value" id="value_1"/>
+            <button type="submit" id="send_1">Send</button>
+        </form>
+        <div class="createResult">
+          <header>
+            Created Object
+          </header>
+          <div class="createdObj" >
+            <code id = "code_1">
+              {
+                id:123,
+                b:'test',
+                demo:'test2'
+              }
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="assigned">
+        <form class="ObjForm" id="Myform2">
+            <input name="key" placeholder="Enter your key" id="key_2"/>
+            <input name="value" placeholder="Enter your value" id="value_2"/>
+            <button type="submit" id="send_2">Send</button>
+          </form>
+          <div class="createResult">
+            <header>
+              Created Object
+            </header>
+            <div class="createdObj">
+              <code id = "code_2">
+                {
+                  id:123,
+                  b:'test',
+                  demo:'test2'
+                }
+              </code>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="resultBlock">
+       <button id="combine">Combine Objects!</button>
+      <h3> Result: </h3>
+      <div id="result"></div>
+    </div>
+
+    <style>
+        .wrap{
+          width: 800px;
+          display: flex;
+        }
+        .ObjForm,
+        .resultBlock{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          box-sizing: border-box;
+          padding: 10px 20px;
+        }
+
+        .assigned{
+          width: 300px;
+          display: flex;
+        }
+        .createResult header{
+          font-weight: 700;
+        }
+      </style>
+
+    <script>
+  /*
+    Задание:
+      1. Используя интерфейс который есть на страничке, написать визуальный
+      конструктор обектов используя значение key-value, которые вводятся в
+      соответствующие поля в форме.
+
+      2. Каждый созданый обьект выводить в тег code после добавления каждого
+      нового поля. Т.е мы должны визуально видить в каком состоянии наши обьекты
+      сейчас
+
+      3. По нажатию кнопки Combine Objects! два обьекта должны обьедениться
+      используя метод Object.assing или spread operator и вывестись на стринчку.
+
+      * Изменять HTML можно.
+
+  */
+
+  var value_1 = document.getElementById('value_1');
+  var value_2 = document.getElementById('value_2');
+
+  var key_1 = document.getElementById('key_1');
+  var key_2 = document.getElementById('key_2');
+
+  var send_1 = document.getElementById('send_1');
+  var send_2 = document.getElementById('send_2'); 
+
+  var result = document.getElementById('result'); 
+
+  var combine = document.getElementById('combine');
+
+  var code_1 = document.getElementById('code_1');
+  var code_2 = document.getElementById('code_2');  
+
+  var myform1 = document.getElementById('Myform1');
+
+  var obj1 = {
+    id: 123,
+    b: 'test',
+    demo: 'test2'
+  };
+
+  var myform2 = document.getElementById('Myform2');
+
+  var obj2 = {
+    id: 123,
+    b: 'test',
+    demo: 'test2'
+  };
+
+  myform1.addEventListener('submit', function(ev){
+    ev.preventDefault();
+
+    var key = key_1.value;
+    var value = value_1.value;
+
+    obj1[key] = value;
+
+    code_1.innerText = JSON.stringify(obj1,null,2);
+
+  });
+
+    myform2.addEventListener('submit', function(ev){
+    ev.preventDefault();
+
+    var key = key_2.value;
+    var value = value_2.value;
+
+    obj2[key] = value;
+
+    code_2.innerText = JSON.stringify(obj2,null,2);
+
+  });
+
+    combine.addEventListener('click', function(){
+      let newOb = Object.assign(obj1,obj2);
+      result.innerText = JSON.stringify(newOb,null,2);
+    });
+
+    </script>
+
+      
+</body>
+</html>
+-

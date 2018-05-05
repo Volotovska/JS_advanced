@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Classwork</title>
+    <input id="input" />
+    <button id='button' style="width: 60px">Нажми</button>
+
+
+</head>
+<body>
+
+
+      <script>
+
+    /*
+      Задание:
+      1. При помощи методов изложеных ниже, переформатировать ITEA_COURSES в массив который содержит длину строк каждого из элементов.
+      2. Самостоятельно изучить метод Array.sort. Отфильтровать массив ITEA_COURSES по алфавиту.
+          + Бонусный бал. Вывести на страничку списком
+      3. Реализация функции поиска по массиву ITEA_COURSES.
+          + Бонусный бал. Вывести на страничку инпут и кнопку по которой будет срабатывать поиск.
+    */
+
+    const ITEA_COURSES = ["Курс HTML & CSS", "JavaScript базовый курс", "JavaScript продвинутый курс", "JavaScript Professional", "Angular 2.4 (базовый)", "Angular 2.4 (продвинутый)", "React.js", "React Native", "Node.js", "Vue.js"];
+
+    var  ITEA_Lengths = ITEA_COURSES.map(function(item){
+      return item.length;
+    });
+
+    console.log(ITEA_Lengths);
+
+    console.log(ITEA_COURSES.sort());
+
+    ITEA_COURSES.forEach(function(item){
+      var li = document.createElement('li');
+      li.innerText = item;
+      document.body.appendChild(li);
+    });
+
+    var input = document.getElementById('input');
+    var button = document.getElementById('button');
+
+    button.addEventListener('click', function(){
+      var newArray = ITEA_COURSES.filter(function(item){
+        return item.indexOf(input.value) != -1;
+      })
+      console.log(newArray);
+    });
+
+    /*
+      Задание 2:
+      Написать фильтр массива по:
+      Актеру, продолжительности
+
+      Бонус:
+        Сделать графическую оболочку для программы:
+        - Селект со списком актеров
+        - Селект или инпут с продолжительностью
+        - Результат в виде списка фильмов
+    */
+
+      var stars = ['Elijah Wood', 'Ian McKellen', 'Orlando Bloom','Ewan McGregor',' Liam Neeson', 'Natalie Portman', 'Ewan McGregor', 'Billy Bob Thornton', 'Martin Freeman']
+      var movies = [
+          {
+            name: "Lord of the Rigs",
+            duration: 240,
+            starring: [ 'Elijah Wood', 'Ian McKellen', 'Orlando Bloom']
+          },
+          {
+            name: "Star Wars: Episode I - The Phantom Menace",
+            duration: 136,
+            starring: [ 'Ewan McGregor',' Liam Neeson', 'Natalie Portman']
+          },
+          {
+            name: "Fargo",
+            duration: 100,
+              starring: [ 'Ewan McGregor', 'Billy Bob Thornton', 'Martin Freeman']
+          },
+          {
+          name: "V for Vendetta",
+          duration: 150,
+          starring: [ 'Hugo Weaving', 'Natalie Portman', 'Rupert Graves']
+        }
+        ];
+
+    var stars_select = document.createElement('select');
+    document.body.appendChild(stars_select);
+
+    for(var i = 0; i<stars.length; i++){
+      var option = document.createElement('option');
+      option.innerHTML = stars[i];
+      stars_select.appendChild(option);
+    }
+
+    var  durations = movies.map(function(item){
+      return item.duration;
+    });
+    console.log(durations);
+
+    var durations_select = document.createElement('select');
+    document.body.appendChild(durations_select);
+
+    for(var i = 0; i<durations.length; i++){
+      var option = document.createElement('option');
+      option.innerHTML = durations[i];
+      durations_select.appendChild(option);
+    }
+
+    var  starrings = movies.map(function(item){
+      return item.starring;
+    });
+
+    console.log(starrings);
+
+    stars_select.addEventListener('change', function() {
+      var newArray = movies.filter(function(item) {
+        return item.starring.indexOf(stars_select.value) !== -1;
+      })
+
+      console.log('movies', newArray);
+    });
+
+    durations_select.addEventListener('change', function() {
+      var newArray = movies.filter(function(item) {
+        return item.duration == durations_select.value;
+      })
+
+      console.log('movies', newArray);
+    });
+
+    </script>
+
+</body>
+</html>
