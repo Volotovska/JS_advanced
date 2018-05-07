@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>newsFeed</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="wrap">
+
+  <div class='left_part'>
+  <header>
+    <h1>News feed</h1>
+  </header>
+  <section>
+      <ul>
+        <li>
+             <div class="news_author">
+              <b>Anna Volotovska</b>
+            </div>
+            <div class="news_date">
+              27.04.2018
+            </div>
+            <div class="news_text">
+            Всегда хочется получить исчерпывающие знания в области, с которой вы работаете. JavaScript — один из языков, о котором получить исчерпывающие знания почти невозможно. Он постоянно развивается, как развивается и веб вообще, поэтому любой веб-разработчик должен стремиться успеть за этим развитием, и уж тем более обязан назубок знать основы технологии, которую он применяет.
+            </div>
+            <div class="pic"><img class='img' id="first_img" src="img/js.gif"></div>
+            <div class="news_actions">
+              <button class="like_button">Likes</button><div class='likes'>0</div><button class="show_comments">Show Comments</button><div class='comments_calc'>0</div><button class="_spamMessage">Spam</button>
+              <button class="_writeComment">Write Comment</button>
+            </div>
+
+        </li>
+      </ul>
+  </section>
+  </div>
+
+  <div class='right_part'>
+    <header>
+      <h1> News Constructor </h1>
+    </header>
+      <form> 
+          <label id="author_label">
+          <div class ="form_text">Author</div>
+          <textarea placeholder="Author" id ='author'></textarea> 
+        </label>
+
+        <label id="text_label">
+          <div class="form_text">News</div>
+          <textarea placeholder="Your News" id ='text'></textarea>
+        </label>
+
+        <label id="img_label">
+          <div class="form_text">Image preview</div>
+          <input placeholder="Enter url" id ='img' ></input>
+        </label>
+
+        <img id='preview' src='' />
+
+      </form>
+
+    <div>
+      <div id ="constructor">
+        <button type="submit" id="btn1">Edit</button>
+        <button type="submit" id="btn2">Delete</button>
+        <button type="submit" id="btn3">Send</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+  <script src="js/bundle.js"></script>
+
+</body>
+</html>
