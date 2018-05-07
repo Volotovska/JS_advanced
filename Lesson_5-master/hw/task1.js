@@ -45,6 +45,11 @@ function Comment(name, text, avatarUrl) {
   this.likes = '0';
 };
 
+// Comment.prototype.avatarUrl = 'images/av.jpg';
+// Comment.prototype.add = function( count ) {
+//   likes += Number(count);
+//   console.log(likes);
+// };
 
 var instance = new Comment('wow');
 
@@ -54,9 +59,14 @@ console.log(instance);
 console.log(instance.avatarUrl);
 console.log(instance.add);
 
+
 function CommentsShow(array){
+  this.array = array;
   this.show = function() {
-    console.log(this.array)
+    console.log(this.array);
+    var div = document.createElement('div');
+    div.innerText = JSON.stringify(this.array, null, 2);
+    document.body.appendChild(div);
   }
 };
 
@@ -67,4 +77,11 @@ var CommentsArray = [
   new Comment('myComment4')
 ];
 
-// console.log(CommentsArray);
+console.log(CommentsArray);
+
+var result = new CommentsShow(CommentsArray);
+result.show();
+
+// var div = document.createElement('div');
+//     div.innerText = JSON.stringify(CommentsArray, null, 2);
+//     document.body.appendChild(div);
