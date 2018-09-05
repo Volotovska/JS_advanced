@@ -1,0 +1,65 @@
+1. В ES6 мы перешли от var к let/const.
+Как мы помним, переменная, объявленная через var, видна везде в функции.
+
+Переменная, объявленная через let, видна только в рамках блока {...}, в котором объявлена.
+
+Это, в частности, влияет на объявления внутри if, while или for.
+Как мы помним, переменные var существуют и до объявления. Они равны undefined.
+С переменными let всё проще. До объявления их вообще нет.
+Объявление const задаёт константу, то есть переменную, которую нельзя менять.
+В остальном объявление const полностью аналогично let.
+
+2.стрелочные ф-ции
+// раньше
+var add = function(a, b) {
+  return a + b;
+};
+
+// сейчас 
+var add = (a, b) => a + b;
+
+3.Template Literals
+
+Не нужно больше делать вложенную конкатенацию, можно использовать шаблоны. Посмотрите:
+
+
+ES5
+var first = 'Adrian';
+var last = 'Mejia';
+console.log('Your name is ' + first + ' ' + last + '.');
+
+С помощью бэктика () и интерполяции строк ${}` можно сделать так:
+
+
+ES6
+const first = 'Adrian';
+const last = 'Mejia';
+console.log(`Your name is ${first} ${last}.`);
+
+4. В ECMAScript 6 мы перешли от “функций-конструкторов” к “классам” .
+ES5
+var Animal = (function () {
+  function MyConstructor(name) {
+    this.name = name;
+  }
+  MyConstructor.prototype.speak = function speak() {
+    console.log(this.name + ' makes a noise.');
+  };
+  return MyConstructor;
+})();
+
+var animal = new Animal('animal');
+animal.speak(); // animal makes a noise.
+
+ES6
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+  speak() {
+    console.log(this.name + ' makes a noise.');
+  }
+}
+
+const animal = new Animal('animal');
+animal.speak(); // animal makes a noise.
